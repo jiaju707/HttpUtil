@@ -125,6 +125,8 @@ public class HttpUtil {
 	 */
 	public static String post(String url, Map<String, String> paramsMap){
 		HttpPost httpPost = new HttpPost(url);
+		// 防止中文乱码
+		httpPost.setHeader("Content-Type", "text/html;charset=UTF-8");
 		String html = null;
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		for (Map.Entry<String, String> entry : paramsMap.entrySet()) {
